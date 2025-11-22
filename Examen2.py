@@ -1,10 +1,11 @@
 class MiClase:
-    def __init__(self, Valencia, Tempo, Tonos, listaCanciones, listaBailabilidad):
+    def __init__(self, Valencia, Tempo, Tonos, listaCanciones, listaBailabilidad, elemento):
         self.Valencia = Valencia
         self.Tempo = Tempo
         self.Tonos = Tonos
         self.listaCanciones = listaCanciones
         self.listaBailabilidad = listaBailabilidad
+        self.elemento = elemento
 
     def ObtieneValencia(self, numero):
         
@@ -42,6 +43,14 @@ class MiClase:
             if song is None:
                 return False
         return True
+    
+    def Encuentra(self, lista, elemento):
+        for item in lista:
+            if item == elemento:
+                return True
+        return False
+
+
 
 
 ################################################################################################
@@ -52,3 +61,6 @@ print(objeto.ObtieneValencia(1234567))       # Esperado: 4
 print(objeto.DivisibleTempo(10))             # Esperado: [1, 2, 5, 10]
 print(objeto.ObtieneMasBailable([0.8, 0.9, 0.7]))  # Esperado: 0.9
 print(objeto.VerificaListaCanciones(["Canción 1", "Canción 2", "Canción 3"]))  # Esperado: True  
+
+print(objeto.Encuentra([10, 20, 30], 20))        # Esperado: True
+print(objeto.Encuentra([], 5))                   # Esperado: False
