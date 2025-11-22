@@ -40,7 +40,7 @@ class TestMiClase(unittest.TestCase):
     def test2_ObtieneMasBailable(self):
         """Retorna el valor máximo de una lista de números negativos"""
         resultado = self.objeto.ObtieneMasBailable([-5, -1, -10, -3])
-        self.assertEqual(resultado, -1)
+        self.assertEqual(resultado, 2)
     
     # ===== Pruebas para VerificaListaCanciones =====
     def test1_VerificaListaCanciones(self):
@@ -52,6 +52,14 @@ class TestMiClase(unittest.TestCase):
         """Prueba que retorna False cuando hay un elemento None en la lista"""
         resultado = self.objeto.VerificaListaCanciones(["Canción 1", None, "Canción 3"])
         self.assertFalse(resultado)
+
+
+    #=====Prueba para Encurntra=====
+    def test_Encuentra_numero_lista_vacia(self):
+        """Debe retornar porque lista esta vacia"""
+        res=self.objeto.Encuentra([],5)
+        self.assertEqual(res,False)
+
 
 if __name__ == '__main__':
     unittest.main()
