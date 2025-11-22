@@ -53,5 +53,13 @@ class TestMiClase(unittest.TestCase):
         resultado = self.objeto.VerificaListaCanciones(["Canción 1", None, "Canción 3"])
         self.assertFalse(resultado)
 
+
+    #=====Prueba para Encurntra=====
+    def test_Encuentra_numero_lista_vacia(self):
+        """Debe retornar porque lista esta vacia"""
+        res=self.objeto.Encuentra([],5)
+        self.assertEqual(res,False)
+
+
 if __name__ == '__main__':
     unittest.main()
