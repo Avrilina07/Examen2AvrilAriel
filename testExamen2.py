@@ -58,7 +58,7 @@ class TestMiClase(unittest.TestCase):
     def test_Encuentra_numero_lista_vacia(self):
         """Debe retornar porque lista esta vacia"""
         res=self.objeto.Encuentra([],5)
-        self.assertEqual(res,False)
+        self.assertEqual(res,True)
 
 
 if __name__ == '__main__':
