@@ -1,38 +1,36 @@
 name: Python Unit Tests
 
-# Cuándo se ejecuta este workflow
+# ¿Cuándo se ejecuta este workflow?
 on:
   pull_request:
     branches:
-      - develop
+      - develop    # Se ejecuta cuando hay PR hacia develop
   push:
     branches:
-      - develop
+      - develop    # Se ejecuta cuando hay push directo a develop
 
-# Trabajos que se ejecutarán
+# Definición de los trabajos
 jobs:
-  test:
-    runs-on: ubuntu-latest  # Sistema operativo donde se ejecuta
+  test:    # ← IMPORTANTE: Este nombre "test" se usará en el Ruleset
+    runs-on: ubuntu-latest    # Sistema operativo donde corre
     
     steps:
     # Paso 1: Descargar el código del repositorio
     - name: Checkout code
       uses: actions/checkout@v3
     
-    # Paso 2: Configurar Python
+    # Paso 2: Configurar Python 3.9
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'  # Versión de Python
+        python-version: '3.9'
     
-    # Paso 3: Instalar dependencias (si las hay)
+    # Paso 3: Instalar dependencias (pip)
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        # Si tienes un requirements.txt, descomenta la siguiente línea:
-        # pip install -r requirements.txt
     
-    # Paso 4: Ejecutar las pruebas unitarias
+    # Paso 4: Ejecutar todas las pruebas unitarias
     - name: Run unit tests
       run: |
         python -m unittest discover -s . -p "test_*.py" -v
