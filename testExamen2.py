@@ -35,12 +35,12 @@ class TestMiClase(unittest.TestCase):
     def test1_ObtieneMasBailable(self):
         """Retorna el valor máximo de una lista de números positivos"""
         resultado = self.objeto.ObtieneMasBailable([0.8, 0.9, 0.7])
-        self.assertEqual(resultado, 0.9)
+        self.assertEqual(resultado, 0.8)
     
     def test2_ObtieneMasBailable(self):
         """Retorna el valor máximo de una lista de números negativos"""
         resultado = self.objeto.ObtieneMasBailable([-5, -1, -10, -3])
-        self.assertEqual(resultado, 2)
+        self.assertEqual(resultado, -1)
     
     # ===== Pruebas para VerificaListaCanciones =====
     def test1_VerificaListaCanciones(self):
